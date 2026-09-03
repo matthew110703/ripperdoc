@@ -1,0 +1,32 @@
+{
+  "name": "@ripperdoc/utils",
+  "version": "0.1.0",
+  "description": "UI utilities and helpers for Ripperdoc design system",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.6.0"
+  },
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup && tsc --emitDeclarationOnly",
+    "typecheck": "tsc --noEmit"
+  }
+}

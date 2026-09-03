@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "paths": {
+      "@ripperdoc/tokens": ["./packages/tokens/src/index.ts"],
+      "@ripperdoc/tokens/*": ["./packages/tokens/src/*"],
+      "@ripperdoc/themes": ["./packages/themes/src/index.ts"],
+      "@ripperdoc/themes/*": ["./packages/themes/src/*"],
+      "@ripperdoc/utils": ["./packages/utils/src/index.ts"],
+      "@ripperdoc/utils/*": ["./packages/utils/src/*"],
+      "@ripperdoc/components": ["./packages/components/src/index.ts"],
+      "@ripperdoc/components/*": ["./packages/components/src/*"],
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", ".storybook/**/*"],
+  "exclude": ["node_modules", "dist", "storybook-static"]
+}

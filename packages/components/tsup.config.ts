@@ -1,0 +1,13 @@
+import { defineConfig } from 'tsup';
+
+export default defineConfig({
+  entry: ['src/index.ts'],
+  format: ['esm', 'cjs'],
+  dts: false,
+  clean: true,
+  sourcemap: true,
+  external: ['react', 'react-dom', '@ripperdoc/tokens', '@ripperdoc/themes', '@ripperdoc/utils'],
+  banner: {
+    js: "'use client';",
+  },
+});

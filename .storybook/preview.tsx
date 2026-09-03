@@ -1,0 +1,69 @@
+import React, { useEffect } from 'react';
+import type { Preview } from '@storybook/nextjs-vite';
+
+// Foundations and Themes
+import '../packages/tokens/src/foundations.css';
+import '../packages/themes/src/obsidian.css';
+import '../packages/themes/src/luminous.css';
+
+const preview: Preview = {
+  parameters: {
+    nextjs: {
+      appDirectory: true,
+    },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/i,
+      },
+    },
+    a11y: {
+      test: 'todo',
+    },
+  },
+  globalTypes: {
+    theme: {
+      description: 'Ripperdoc Theme (Obsidian / Luminous)',
+      defaultValue: 'obsidian',
+      toolbar: {
+        title: 'Theme',
+        icon: 'paintbrush',
+        items: [
+          { value: 'obsidian', title: 'Obsidian (Dark Cinematic)', icon: 'moon' },
+          { value: 'luminous', title: 'Luminous (Light Editorial)', icon: 'sun' },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
+  decorators: [
+    (Story, context) => {
+      const theme = context.globals.theme || 'obsidian';
+
+      useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+        document.body.style.backgroundColor =
+          theme === 'obsidian' ? 'var(--rd-color-background, #131313)' : 'var(--rd-color-background, #f8f9ff)';
+        document.body.style.color =
+          theme === 'obsidian' ? 'var(--rd-color-on-background, #e5e2e1)' : 'var(--rd-color-on-background, #0b1c30)';
+      }, [theme]);
+
+      return (
+        <div
+          data-theme={theme}
+          style={{
+            fontFamily: 'var(--rd-font-sans)',
+            color: 'var(--rd-color-on-surface)',
+            backgroundColor: 'transparent',
+            minHeight: '100%',
+            transition: 'background-color 200ms ease, color 200ms ease',
+          }}
+        >
+          <Story />
+        </div>
+      );
+    },
+  ],
+};
+
+export default preview;

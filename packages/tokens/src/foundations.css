@@ -1,0 +1,143 @@
+/**
+ * Ripperdoc Shared Foundations
+ * Global token contract shared across all themes (Obsidian, Luminous, etc.)
+ */
+:root {
+  /* Font Families */
+  --rd-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --rd-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Spacing Scale (4px Baseline) */
+  --rd-space-1: 4px;
+  --rd-space-2: 8px;
+  --rd-space-3: 12px;
+  --rd-space-4: 16px;
+  --rd-space-5: 20px;
+  --rd-space-6: 24px;
+  --rd-space-8: 32px;
+  --rd-space-10: 40px;
+  --rd-space-12: 48px;
+  --rd-space-16: 64px;
+
+  /* Radius Scale */
+  --rd-radius-sm: 4px;
+  --rd-radius-default: 8px;
+  --rd-radius-md: 12px;
+  --rd-radius-lg: 16px;
+  --rd-radius-xl: 24px;
+  --rd-radius-full: 9999px;
+
+  /* Motion & Durations */
+  --rd-duration-fast: 150ms;
+  --rd-duration-normal: 250ms;
+  --rd-duration-slow: 400ms;
+  --rd-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --rd-ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --rd-ease-accelerate: cubic-bezier(0.4, 0, 1, 1);
+
+  /* Layout Constraints */
+  --rd-container-max-width: 1440px;
+  --rd-container-margin-mobile: 16px;
+  --rd-container-margin-desktop: 48px;
+  --rd-gutter: 16px;
+}
+
+/* Tabular figures for runtimes, timers, episode numbers */
+.rd-tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Typography Utility Classes */
+.rd-display-hero {
+  font-family: var(--rd-font-sans);
+  font-size: 48px;
+  line-height: 56px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.rd-headline-xl {
+  font-family: var(--rd-font-sans);
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.rd-headline-lg {
+  font-family: var(--rd-font-sans);
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.rd-headline-md {
+  font-family: var(--rd-font-sans);
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.rd-headline-sm {
+  font-family: var(--rd-font-sans);
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.rd-title-md {
+  font-family: var(--rd-font-sans);
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.rd-body-lg {
+  font-family: var(--rd-font-sans);
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+.rd-body-md {
+  font-family: var(--rd-font-sans);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.rd-body-sm {
+  font-family: var(--rd-font-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.rd-label-lg {
+  font-family: var(--rd-font-sans);
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.rd-label-md {
+  font-family: var(--rd-font-sans);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.rd-label-sm {
+  font-family: var(--rd-font-sans);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}

@@ -1,0 +1,86 @@
+/**
+ * Ripperdoc Theme: Luminous
+ * Pristine atmospheric minimalism, daylight fidelity, electric cobalt energy
+ */
+[data-theme='luminous'] {
+  --rd-theme-name: 'luminous';
+
+  /* Surface Hierarchy */
+  --rd-color-surface: #f8f9ff;
+  --rd-color-surface-dim: #cbdbf5;
+  --rd-color-surface-bright: #f8f9ff;
+  --rd-color-surface-container-lowest: #ffffff;
+  --rd-color-surface-container-low: #eff4ff;
+  --rd-color-surface-container: #e5eeff;
+  --rd-color-surface-container-high: #dce9ff;
+  --rd-color-surface-container-highest: #d3e4fe;
+  --rd-color-surface-variant: #d3e4fe;
+
+  /* Text & On-Surface Contrast */
+  --rd-color-on-surface: #0b1c30;
+  --rd-color-on-surface-variant: #434655;
+  --rd-color-inverse-surface: #213145;
+  --rd-color-inverse-on-surface: #eaf1ff;
+
+  /* Canvas */
+  --rd-color-background: #f8f9ff;
+  --rd-color-on-background: #0b1c30;
+
+  /* Outlines & Borders */
+  --rd-color-outline: #737686;
+  --rd-color-outline-variant: #c3c6d7;
+  --rd-color-surface-tint: #0053db;
+
+  /* Primary Brand Accent (Vibrant Cobalt) */
+  --rd-color-primary: #004ac6;
+  --rd-color-on-primary: #ffffff;
+  --rd-color-primary-container: #2563eb;
+  --rd-color-on-primary-container: #eeefff;
+  --rd-color-inverse-primary: #b4c5ff;
+  --rd-color-primary-fixed: #dbe1ff;
+  --rd-color-primary-fixed-dim: #b4c5ff;
+  --rd-color-on-primary-fixed: #00174b;
+  --rd-color-on-primary-fixed-variant: #003ea8;
+
+  /* Secondary Accent (Slate / Charcoal) */
+  --rd-color-secondary: #565e74;
+  --rd-color-on-secondary: #ffffff;
+  --rd-color-secondary-container: #dae2fd;
+  --rd-color-on-secondary-container: #5c647a;
+  --rd-color-secondary-fixed: #dae2fd;
+  --rd-color-secondary-fixed-dim: #bec6e0;
+  --rd-color-on-secondary-fixed: #131b2e;
+  --rd-color-on-secondary-fixed-variant: #3f465c;
+
+  /* Tertiary Accent (Sky Blue highlight) */
+  --rd-color-tertiary: #005b7c;
+  --rd-color-on-tertiary: #ffffff;
+  --rd-color-tertiary-container: #00759f;
+  --rd-color-on-tertiary-container: #e1f2ff;
+  --rd-color-tertiary-fixed: #c4e7ff;
+  --rd-color-tertiary-fixed-dim: #7bd0ff;
+  --rd-color-on-tertiary-fixed: #001e2c;
+  --rd-color-on-tertiary-fixed-variant: #004c69;
+
+  /* Error / Destructive */
+  --rd-color-error: #ba1a1a;
+  --rd-color-on-error: #ffffff;
+  --rd-color-error-container: #ffdad6;
+  --rd-color-on-error-container: #93000a;
+
+  /* Focus States */
+  --rd-color-focus: #2563eb;
+  --rd-color-focus-ring: rgba(37, 99, 235, 0.35);
+
+  /* Elevation & Depth */
+  --rd-elevation-0: #f8fafc;
+  --rd-elevation-1: #ffffff;
+  --rd-border-level-1: 1px solid #e2e8f0;
+  --rd-elevation-2: #ffffff;
+  --rd-shadow-level-2: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+
+  /* Glassmorphism */
+  --rd-glass-surface: rgba(255, 255, 255, 0.75);
+  --rd-glass-border: rgba(15, 23, 42, 0.08);
+  --rd-glass-blur: 20px;
+}
