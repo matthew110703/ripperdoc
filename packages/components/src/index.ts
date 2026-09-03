@@ -3,4 +3,17 @@ export * from '@ripperdoc/tokens';
 export * from '@ripperdoc/themes';
 export * from '@ripperdoc/utils';
 
-// Components will be added and exported here per component specifications
+// Primitives
+export * from './primitives/Box';
+export * from './primitives/Stack';
+export * from './primitives/Inline';
+export * from './primitives/Container';
+
+// Actions
+export * from './actions/Button';
+
+// Feedback
+export * from './feedback/Badge';
+
+// Surfaces
+export * from './surfaces/Card';

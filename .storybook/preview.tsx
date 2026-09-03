@@ -20,6 +20,27 @@ const preview: Preview = {
     a11y: {
       test: 'todo',
     },
+    options: {
+      storySort: {
+        order: [
+          'Introduction',
+          ['Welcome', 'Philosophy', 'Architecture', 'Getting Started'],
+          'Foundations',
+          ['Colors', 'Typography', 'Spacing & Radius', 'Elevation & Depth', 'Motion & Grid'],
+          'Themes',
+          ['Theme Architecture', 'Obsidian', 'Luminous', 'Comparison'],
+          'Primitives',
+          ['Box', 'Stack', 'Inline', 'Container'],
+          'Actions',
+          ['Button', 'IconButton'],
+          'Feedback',
+          ['Badge', 'Spinner'],
+          'Surfaces',
+          ['Card'],
+          '*',
+        ],
+      },
+    },
   },
   globalTypes: {
     theme: {
