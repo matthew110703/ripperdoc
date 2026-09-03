@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { cn } from '@ripperdoc/utils';
+import { cn } from '@ripperdoc-chrome77/utils';
 import type { StackGap, StackAlign, StackJustify } from './Stack';
 
 export interface InlineProps extends React.HTMLAttributes<HTMLDivElement> {

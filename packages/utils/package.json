@@ -1,5 +1,5 @@
 {
-  "name": "@ripperdoc/utils",
+  "name": "@ripperdoc-chrome77/utils",
   "version": "0.1.0",
   "description": "UI utilities and helpers for Ripperdoc design system",
   "type": "module",

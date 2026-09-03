@@ -1,5 +1,5 @@
 // Ripperdoc Global Platform Entry Point
-export * from '@ripperdoc/tokens';
-export * from '@ripperdoc/themes';
-export * from '@ripperdoc/utils';
-export * from '@ripperdoc/components';
+export * from '@ripperdoc-chrome77/tokens';
+export * from '@ripperdoc-chrome77/themes';
+export * from '@ripperdoc-chrome77/utils';
+export * from '@ripperdoc-chrome77/components';

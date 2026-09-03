@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@ripperdoc/utils';
+import { cn } from '@ripperdoc-chrome77/utils';
 
 export const badgeVariants = cva('rd-badge inline-flex items-center font-medium tracking-wide', {
   variants: {

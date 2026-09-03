@@ -1,5 +1,5 @@
 {
-  "name": "@ripperdoc/ui",
+  "name": "@ripperdoc-chrome77/ui",
   "version": "0.1.0",
   "description": "Modern React UI Kit supporting Next.js, built with Storybook and Vite",
   "type": "module",

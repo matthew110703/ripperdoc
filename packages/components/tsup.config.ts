@@ -6,7 +6,13 @@ export default defineConfig({
   dts: false,
   clean: true,
   sourcemap: true,
-  external: ['react', 'react-dom', '@ripperdoc/tokens', '@ripperdoc/themes', '@ripperdoc/utils'],
+  external: [
+    'react',
+    'react-dom',
+    '@ripperdoc-chrome77/tokens',
+    '@ripperdoc-chrome77/themes',
+    '@ripperdoc-chrome77/utils',
+  ],
   banner: {
     js: "'use client';",
   },

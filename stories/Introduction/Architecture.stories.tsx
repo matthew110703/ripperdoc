@@ -90,7 +90,7 @@ export const SystemArchitecture: Story = {
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
               <span style={{ fontFamily: 'var(--rd-font-mono)', fontSize: '12px', fontWeight: 700, color: 'var(--rd-color-primary)' }}>
-                RIPPERDOC GLOBAL PLATFORM (@ripperdoc/*)
+                RIPPERDOC GLOBAL PLATFORM (@ripperdoc-chrome77/*)
               </span>
               <span style={{ fontSize: '11px', fontFamily: 'var(--rd-font-mono)', color: '#22c55e' }}>
                 ZERO DOMAIN DEPENDENCIES
@@ -99,10 +99,10 @@ export const SystemArchitecture: Story = {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.75rem' }}>
               {[
-                { name: '@ripperdoc/tokens', desc: 'Raw values, scales, foundations.css' },
-                { name: '@ripperdoc/themes', desc: 'Obsidian, Luminous, ThemeProvider' },
-                { name: '@ripperdoc/utils', desc: 'cn, DOM, focus helpers' },
-                { name: '@ripperdoc/components', desc: 'Box, Stack, Button, Card, Badge' },
+                { name: '@ripperdoc-chrome77/tokens', desc: 'Raw values, scales, foundations.css' },
+                { name: '@ripperdoc-chrome77/themes', desc: 'Obsidian, Luminous, ThemeProvider' },
+                { name: '@ripperdoc-chrome77/utils', desc: 'cn, DOM, focus helpers' },
+                { name: '@ripperdoc-chrome77/components', desc: 'Box, Stack, Button, Card, Badge' },
               ].map((pkg, idx) => (
                 <div
                   key={idx}

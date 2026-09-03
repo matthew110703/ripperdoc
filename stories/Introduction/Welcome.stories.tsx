@@ -194,20 +194,20 @@ export const ControlCenter: Story = {
               # 1. Install packages in your micro-frontend
             </div>
             <div style={{ color: 'var(--rd-color-primary)', marginBottom: '1rem' }}>
-              pnpm add @ripperdoc/components @ripperdoc/tokens @ripperdoc/themes
+              pnpm add @ripperdoc-chrome77/components @ripperdoc-chrome77/tokens @ripperdoc-chrome77/themes
             </div>
 
             <div style={{ color: 'var(--rd-color-on-surface-variant)', marginBottom: '0.5rem' }}>
               # 2. Wrap your application with the ThemeProvider
             </div>
             <div style={{ opacity: 0.9 }}>
-              {`import { ThemeProvider } from '@ripperdoc/themes';`}
+              {`import { ThemeProvider } from '@ripperdoc-chrome77/themes';`}
               <br />
-              {`import '@ripperdoc/tokens/foundations.css';`}
+              {`import '@ripperdoc-chrome77/tokens/foundations.css';`}
               <br />
-              {`import '@ripperdoc/themes/obsidian.css';`}
+              {`import '@ripperdoc-chrome77/themes/obsidian.css';`}
               <br />
-              {`import '@ripperdoc/themes/luminous.css';`}
+              {`import '@ripperdoc-chrome77/themes/luminous.css';`}
               <br />
               <br />
               {`export function App() {`}

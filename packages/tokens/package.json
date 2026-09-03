@@ -1,5 +1,5 @@
 {
-  "name": "@ripperdoc/tokens",
+  "name": "@ripperdoc-chrome77/tokens",
   "version": "0.1.0",
   "description": "Design tokens and shared foundations for Ripperdoc design system",
   "type": "module",

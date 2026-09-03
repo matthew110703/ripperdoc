@@ -37,10 +37,10 @@ All tokens follow the **three-tier hierarchy**:
 ## 3. Package Boundaries
 
 The repository is organized as a pnpm workspace:
-- `@ripperdoc/tokens`: Raw and semantic design tokens, TypeScript types, and foundation CSS.
-- `@ripperdoc/themes`: Theme-specific color mappings, elevation layers, and theme providers (`obsidian.css`, `luminous.css`).
-- `@ripperdoc/utils`: UI utilities (`cn`, focus helpers, DOM helpers).
-- `@ripperdoc/components`: Accessible, reusable UI components.
+- `@ripperdoc-chrome77/tokens`: Raw and semantic design tokens, TypeScript types, and foundation CSS.
+- `@ripperdoc-chrome77/themes`: Theme-specific color mappings, elevation layers, and theme providers (`obsidian.css`, `luminous.css`).
+- `@ripperdoc-chrome77/utils`: UI utilities (`cn`, focus helpers, DOM helpers).
+- `@ripperdoc-chrome77/components`: Accessible, reusable UI components.
 
 ---
 

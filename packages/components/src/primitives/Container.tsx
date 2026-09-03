@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { cn } from '@ripperdoc/utils';
+import { cn } from '@ripperdoc-chrome77/utils';
 
 export type ContainerSize = 'sm' | 'md' | 'lg' | 'xl' | 'full';
 

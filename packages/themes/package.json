@@ -1,5 +1,5 @@
 {
-  "name": "@ripperdoc/themes",
+  "name": "@ripperdoc-chrome77/themes",
   "version": "0.1.0",
   "description": "Theme specifications (Obsidian & Luminous) and ThemeProvider for Ripperdoc",
   "type": "module",

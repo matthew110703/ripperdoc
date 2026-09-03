@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { cn } from '@ripperdoc/utils';
+import { cn } from '@ripperdoc-chrome77/utils';
 
 export type StackGap = 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 16;
 export type StackAlign = 'start' | 'center' | 'end' | 'stretch' | 'baseline';

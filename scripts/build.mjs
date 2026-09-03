@@ -7,9 +7,12 @@ try {
     console.log('📦 Building all workspace packages...');
     execSync('pnpm -r --filter "./packages/*" build', { stdio: 'inherit' });
   } else {
-    // Normalizes "tokens" -> "@ripperdoc/tokens"
+    // Normalizes "tokens" -> "@ripperdoc-chrome77/tokens"
     const filters = args
-      .map((pkg) => `--filter "@ripperdoc/${pkg.replace(/^@ripperdoc\//, '')}"`)
+      .map((pkg) => {
+        const cleanName = pkg.replace(/^@(ripperdoc-chrome77|ripperdoc)\//, '');
+        return `--filter "@ripperdoc-chrome77/${cleanName}"`;
+      })
       .join(' ');
 
     console.log(`📦 Building targeted packages: ${args.join(', ')}...`);

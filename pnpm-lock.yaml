@@ -105,13 +105,13 @@ importers:
 
   packages/components:
     dependencies:
-      '@ripperdoc/themes':
+      '@ripperdoc-chrome77/themes':
         specifier: workspace:*
         version: link:../themes
-      '@ripperdoc/tokens':
+      '@ripperdoc-chrome77/tokens':
         specifier: workspace:*
         version: link:../tokens
-      '@ripperdoc/utils':
+      '@ripperdoc-chrome77/utils':
         specifier: workspace:*
         version: link:../utils
       class-variance-authority:

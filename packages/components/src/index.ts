@@ -1,7 +1,7 @@
 // Re-export design tokens, themes, and utilities
-export * from '@ripperdoc/tokens';
-export * from '@ripperdoc/themes';
-export * from '@ripperdoc/utils';
+export * from '@ripperdoc-chrome77/tokens';
+export * from '@ripperdoc-chrome77/themes';
+export * from '@ripperdoc-chrome77/utils';
 
 // Primitives
 export * from './primitives/Box';
