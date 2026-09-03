@@ -1,12 +1,13 @@
 import React, { forwardRef } from 'react';
 import { cn } from '@ripperdoc-chrome77/utils';
-
-export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  elevation?: 0 | 1 | 2;
-  glass?: boolean;
-  className?: string;
-  children?: React.ReactNode;
-}
+import type {
+  CardProps,
+  CardHeaderProps,
+  CardTitleProps,
+  CardDescriptionProps,
+  CardContentProps,
+  CardFooterProps,
+} from './Card.types';
 
 export const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ elevation = 1, glass = false, className, style, children, ...props }, ref) => {
@@ -33,10 +34,9 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
     );
   }
 );
-
 Card.displayName = 'Card';
 
-export const CardHeader = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+export const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
   ({ className, style, children, ...props }, ref) => (
     <div
       ref={ref}
@@ -56,7 +56,7 @@ export const CardHeader = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDi
 );
 CardHeader.displayName = 'CardHeader';
 
-export const CardTitle = forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(
+export const CardTitle = forwardRef<HTMLHeadingElement, CardTitleProps>(
   ({ className, style, children, ...props }, ref) => (
     <h3
       ref={ref}
@@ -79,7 +79,7 @@ export const CardTitle = forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTM
 );
 CardTitle.displayName = 'CardTitle';
 
-export const CardDescription = forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(
+export const CardDescription = forwardRef<HTMLParagraphElement, CardDescriptionProps>(
   ({ className, style, children, ...props }, ref) => (
     <p
       ref={ref}
@@ -100,7 +100,7 @@ export const CardDescription = forwardRef<HTMLParagraphElement, React.HTMLAttrib
 );
 CardDescription.displayName = 'CardDescription';
 
-export const CardContent = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+export const CardContent = forwardRef<HTMLDivElement, CardContentProps>(
   ({ className, style, children, ...props }, ref) => (
     <div
       ref={ref}
@@ -119,7 +119,7 @@ export const CardContent = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLD
 );
 CardContent.displayName = 'CardContent';
 
-export const CardFooter = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+export const CardFooter = forwardRef<HTMLDivElement, CardFooterProps>(
   ({ className, style, children, ...props }, ref) => (
     <div
       ref={ref}

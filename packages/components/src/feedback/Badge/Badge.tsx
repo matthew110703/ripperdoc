@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
 import { cn } from '@ripperdoc-chrome77/utils';
+import type { BadgeProps } from './Badge.types';
 
 export const badgeVariants = cva('rd-badge inline-flex items-center font-medium tracking-wide', {
   variants: {
@@ -27,12 +28,6 @@ export const badgeVariants = cva('rd-badge inline-flex items-center font-medium 
     pill: false,
   },
 });
-
-export interface BadgeProps
-  extends React.HTMLAttributes<HTMLSpanElement>,
-    VariantProps<typeof badgeVariants> {
-  children?: React.ReactNode;
-}
 
 const variantStyles: Record<string, React.CSSProperties> = {
   default: {

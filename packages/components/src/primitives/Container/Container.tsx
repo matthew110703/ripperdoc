@@ -1,13 +1,6 @@
 import React, { forwardRef } from 'react';
 import { cn } from '@ripperdoc-chrome77/utils';
-
-export type ContainerSize = 'sm' | 'md' | 'lg' | 'xl' | 'full';
-
-export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
-  size?: ContainerSize;
-  className?: string;
-  children?: React.ReactNode;
-}
+import type { ContainerProps, ContainerSize } from './Container.types';
 
 const sizeMap: Record<ContainerSize, string> = {
   sm: '640px',

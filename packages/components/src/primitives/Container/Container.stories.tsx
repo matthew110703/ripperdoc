@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { Container } from '../../packages/components/src/primitives/Container';
+import { Container } from './Container';
 
 const meta = {
   title: 'Primitives/Container',

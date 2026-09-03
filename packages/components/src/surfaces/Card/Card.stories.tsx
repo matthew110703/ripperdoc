@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '../../packages/components/src/surfaces/Card';
-import { Button } from '../../packages/components/src/actions/Button';
-import { Badge } from '../../packages/components/src/feedback/Badge';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from './Card';
+import { Button } from '../../actions/Button';
+import { Badge } from '../../feedback/Badge';
 
 const meta = {
   title: 'Surfaces/Card',

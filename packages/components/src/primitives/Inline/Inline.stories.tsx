@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { Inline } from '../../packages/components/src/primitives/Inline';
-import { Badge } from '../../packages/components/src/feedback/Badge';
-import { Button } from '../../packages/components/src/actions/Button';
+import { Inline } from './Inline';
+import { Badge } from '../../feedback/Badge';
+import { Button } from '../../actions/Button';
 
 const meta = {
   title: 'Primitives/Inline',

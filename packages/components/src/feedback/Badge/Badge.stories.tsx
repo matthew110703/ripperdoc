@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { Badge } from '../../packages/components/src/feedback/Badge';
+import { Badge } from './Badge';
 
 const meta = {
   title: 'Feedback/Badge',

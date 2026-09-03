@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { Button } from '../../packages/components/src/actions/Button';
+import { Button } from './Button';
 
 const meta = {
   title: 'Actions/Button',

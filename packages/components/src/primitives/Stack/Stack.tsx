@@ -1,15 +1,6 @@
 import React, { forwardRef } from 'react';
 import { cn } from '@ripperdoc-chrome77/utils';
-import type { StackGap, StackAlign, StackJustify } from './Stack';
-
-export interface InlineProps extends React.HTMLAttributes<HTMLDivElement> {
-  gap?: StackGap;
-  align?: StackAlign;
-  justify?: StackJustify;
-  wrap?: boolean;
-  className?: string;
-  children?: React.ReactNode;
-}
+import type { StackProps, StackAlign, StackJustify } from './Stack.types';
 
 const alignMap: Record<StackAlign, string> = {
   start: 'flex-start',
@@ -27,16 +18,27 @@ const justifyMap: Record<StackJustify, string> = {
   around: 'space-around',
 };
 
-export const Inline = forwardRef<HTMLDivElement, InlineProps>(
-  ({ gap = 2, align = 'center', justify = 'start', wrap = false, className, style, children, ...props }, ref) => {
+export const Stack = forwardRef<HTMLDivElement, StackProps>(
+  (
+    {
+      gap = 4,
+      align = 'stretch',
+      justify = 'start',
+      direction = 'column',
+      className,
+      style,
+      children,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <div
         ref={ref}
-        className={cn('rd-inline', className)}
+        className={cn('rd-stack', className)}
         style={{
           display: 'flex',
-          flexDirection: 'row',
-          flexWrap: wrap ? 'wrap' : 'nowrap',
+          flexDirection: direction,
           gap: `var(--rd-space-${gap})`,
           alignItems: alignMap[align],
           justifyContent: justifyMap[justify],
@@ -50,4 +52,4 @@ export const Inline = forwardRef<HTMLDivElement, InlineProps>(
   }
 );
 
-Inline.displayName = 'Inline';
+Stack.displayName = 'Stack';

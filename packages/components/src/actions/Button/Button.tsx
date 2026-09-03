@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
 import { cn } from '@ripperdoc-chrome77/utils';
+import type { ButtonProps } from './Button.types';
 
 export const buttonVariants = cva(
   'rd-button inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 select-none cursor-pointer',
@@ -30,15 +31,6 @@ export const buttonVariants = cva(
     },
   }
 );
-
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  loading?: boolean;
-  leadingIcon?: React.ReactNode;
-  trailingIcon?: React.ReactNode;
-  children?: React.ReactNode;
-}
 
 const variantStyles: Record<string, React.CSSProperties> = {
   primary: {
@@ -109,9 +101,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
-    const isPrimary = variant === 'primary';
-    const isDanger = variant === 'danger';
-
     return (
       <button
         ref={ref}
