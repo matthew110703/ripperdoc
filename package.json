@@ -34,6 +34,8 @@
     "changeset:status": "changeset status",
     "version-packages": "changeset version",
     "release": "pnpm build && changeset publish",
+    "release:changed": "node ./scripts/release-changed.mjs",
+    "publish:changed": "node ./scripts/release-changed.mjs",
     "clean": "rimraf --glob packages/*/dist dist storybook-static .next node_modules/.cache",
     "prepare": "husky",
     "commit": "cz"
