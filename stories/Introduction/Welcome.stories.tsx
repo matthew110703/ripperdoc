@@ -42,7 +42,7 @@ export const ControlCenter: Story = {
             />
             <span style={{ fontWeight: 700, color: 'var(--rd-color-primary)' }}>RIPPERDOC // CHROME77</span>
             <span style={{ opacity: 0.5 }}>|</span>
-            <span style={{ opacity: 0.7 }}>SYS.VER 0.1.0</span>
+            <span style={{ opacity: 0.7 }}>SYS.VER 1.0.0-beta</span>
           </div>
           <div style={{ display: 'flex', gap: '1.5rem', opacity: 0.8 }}>
             <span>THEMES: OBSIDIAN · LUMINOUS</span>
