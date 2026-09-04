@@ -1,6 +1,6 @@
 {
   "name": "@ripperdoc-chrome77/utils",
-  "version": "1.0.0-beta",
+  "version": "1.0.0",
   "description": "UI utilities and helpers for Ripperdoc design system",
   "type": "module",
   "main": "./dist/index.cjs",

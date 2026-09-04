@@ -1,6 +1,6 @@
 {
   "name": "@ripperdoc-chrome77/themes",
-  "version": "1.0.0-beta",
+  "version": "1.0.0",
   "description": "Theme specifications (Obsidian & Luminous) and ThemeProvider for Ripperdoc",
   "type": "module",
   "main": "./dist/index.cjs",
