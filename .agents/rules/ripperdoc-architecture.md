@@ -20,3 +20,7 @@
 - Every interactive component must support keyboard navigation, visible focus indicators, and appropriate ARIA attributes.
 - Every component must have comprehensive Storybook stories covering all states (default, hover, active, focus, disabled, loading, responsive).
 - Any consumer-visible change must include a Changeset.
+
+## 5. Git & Commit Invariant
+- **Rule 5.1**: Agents must **NEVER** run `git commit` or commit changes automatically.
+- **Rule 5.2**: Always leave all modified and created files in the working directory for the user to review, stage, and commit themselves.

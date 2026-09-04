@@ -19,6 +19,9 @@
 3. **Themes as Configuration**:
    - Themes (e.g. **Obsidian** and **Luminous**) configure design tokens via CSS custom properties.
    - Never fork components for branding (e.g. do not create `ObsidianButton` vs. `LuminousButton`). All components consume standard tokens like `var(--rd-color-primary)`.
+4. **No Auto-Commits by Agents**:
+   - **NEVER** run `git commit` or commit changes automatically.
+   - Always leave files in the working directory for the user to review, test, and commit themselves.
 
 ---
 
