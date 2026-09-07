@@ -1,6 +1,9 @@
 import React, { forwardRef } from 'react';
 import { cva } from 'class-variance-authority';
+import { motion } from 'motion/react';
 import { cn } from '@ripperdoc-chrome77/utils';
+import { useMotionConfig, useReducedMotion } from '../../motion';
+import { pulse as pulseVariant } from '../../motion/variants';
 import type { BadgeProps } from './Badge.types';
 
 export const badgeVariants = cva('rd-badge inline-flex items-center font-medium tracking-wide', {
@@ -81,21 +84,56 @@ const sizeStyles: Record<string, React.CSSProperties> = {
 };
 
 export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
-  ({ variant = 'default', size = 'md', pill = false, className, style, children, ...props }, ref) => {
+  (
+    {
+      variant = 'default',
+      size = 'md',
+      pill = false,
+      pulse = false,
+      motion: motionProp = true,
+      className,
+      style,
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    const { disabled: globalMotionDisabled } = useMotionConfig();
+    const isReduced = useReducedMotion();
+    const isMotionActive = motionProp && !globalMotionDisabled && !isReduced;
+
+    const baseStyles: React.CSSProperties = {
+      fontFamily: 'var(--rd-font-sans)',
+      borderRadius: pill ? 'var(--rd-radius-full)' : 'var(--rd-radius-sm)',
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: 'var(--rd-space-1)',
+      ...variantStyles[variant || 'default'],
+      ...sizeStyles[size || 'md'],
+      ...style,
+    };
+
+    if (pulse && isMotionActive) {
+      return (
+        <motion.span
+          ref={ref}
+          className={cn(badgeVariants({ variant, size, pill, className }))}
+          style={baseStyles}
+          variants={pulseVariant}
+          initial="initial"
+          animate="animate"
+          {...(props as any)}
+        >
+          {children}
+        </motion.span>
+      );
+    }
+
     return (
       <span
         ref={ref}
         className={cn(badgeVariants({ variant, size, pill, className }))}
-        style={{
-          fontFamily: 'var(--rd-font-sans)',
-          borderRadius: pill ? 'var(--rd-radius-full)' : 'var(--rd-radius-sm)',
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: 'var(--rd-space-1)',
-          ...variantStyles[variant || 'default'],
-          ...sizeStyles[size || 'md'],
-          ...style,
-        }}
+        style={baseStyles}
         {...props}
       >
         {children}

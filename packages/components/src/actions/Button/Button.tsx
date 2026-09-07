@@ -1,6 +1,9 @@
 import React, { forwardRef } from 'react';
 import { cva } from 'class-variance-authority';
+import { motion } from 'motion/react';
+import { springs } from '@ripperdoc-chrome77/tokens';
 import { cn } from '@ripperdoc-chrome77/utils';
+import { useMotionConfig, useReducedMotion } from '../../motion';
 import type { ButtonProps } from './Button.types';
 
 export const buttonVariants = cva(
@@ -94,6 +97,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       disabled = false,
       leadingIcon,
       trailingIcon,
+      motion: motionProp = true,
       className,
       style,
       children,
@@ -101,48 +105,103 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
+    const { disabled: globalMotionDisabled } = useMotionConfig();
+    const isReduced = useReducedMotion();
+    const isMotionActive = motionProp && !globalMotionDisabled && !isReduced;
+
+    const baseStyles: React.CSSProperties = {
+      fontFamily: 'var(--rd-font-sans)',
+      fontWeight: 600,
+      display: fullWidth ? 'flex' : 'inline-flex',
+      width: fullWidth ? '100%' : 'auto',
+      alignItems: 'center',
+      justifyContent: 'center',
+      boxSizing: 'border-box',
+      cursor: disabled || loading ? 'not-allowed' : 'pointer',
+      opacity: disabled ? 0.5 : 1,
+      transition: isMotionActive
+        ? 'background-color var(--rd-duration-fast) var(--rd-ease-standard), border-color var(--rd-duration-fast) var(--rd-ease-standard), color var(--rd-duration-fast) var(--rd-ease-standard)'
+        : 'all var(--rd-duration-fast) var(--rd-ease-standard)',
+      ...variantStyles[variant || 'primary'],
+      ...sizeStyles[size || 'md'],
+      ...style,
+    };
+
+    const spinnerSize = size === 'sm' ? 14 : size === 'lg' ? 18 : 16;
+
+    const spinner = isMotionActive ? (
+      <motion.span
+        aria-hidden="true"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: `${spinnerSize}px`,
+          height: `${spinnerSize}px`,
+          border: '2px solid currentColor',
+          borderRightColor: 'transparent',
+          borderRadius: '50%',
+          flexShrink: 0,
+          boxSizing: 'border-box',
+        }}
+      />
+    ) : (
+      <span
+        aria-hidden="true"
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: `${spinnerSize}px`,
+          height: `${spinnerSize}px`,
+          border: '2px solid currentColor',
+          borderRightColor: 'transparent',
+          borderRadius: '50%',
+          flexShrink: 0,
+          boxSizing: 'border-box',
+          animation: 'rd-spin 0.8s linear infinite',
+        }}
+      />
+    );
+
+    const innerContent = (
+      <>
+        {loading ? spinner : leadingIcon && <span style={{ display: 'inline-flex', alignItems: 'center' }}>{leadingIcon}</span>}
+        {children && <span>{children}</span>}
+        {!loading && trailingIcon && <span style={{ display: 'inline-flex', alignItems: 'center' }}>{trailingIcon}</span>}
+      </>
+    );
+
+    if (isMotionActive) {
+      return (
+        <motion.button
+          ref={ref}
+          disabled={disabled || loading}
+          aria-busy={loading}
+          className={cn(buttonVariants({ variant, size, fullWidth, className }))}
+          style={baseStyles}
+          whileHover={disabled || loading ? undefined : { scale: 1.015 }}
+          whileTap={disabled || loading ? undefined : { scale: 0.97 }}
+          transition={springs.snappy}
+          {...(props as any)}
+        >
+          {innerContent}
+        </motion.button>
+      );
+    }
+
     return (
       <button
         ref={ref}
         disabled={disabled || loading}
         aria-busy={loading}
         className={cn(buttonVariants({ variant, size, fullWidth, className }))}
-        style={{
-          fontFamily: 'var(--rd-font-sans)',
-          fontWeight: 600,
-          display: fullWidth ? 'flex' : 'inline-flex',
-          width: fullWidth ? '100%' : 'auto',
-          alignItems: 'center',
-          justifyContent: 'center',
-          boxSizing: 'border-box',
-          cursor: disabled || loading ? 'not-allowed' : 'pointer',
-          opacity: disabled ? 0.5 : 1,
-          transition: 'all var(--rd-duration-fast) var(--rd-ease-standard)',
-          ...variantStyles[variant || 'primary'],
-          ...sizeStyles[size || 'md'],
-          ...style,
-        }}
+        style={baseStyles}
         {...props}
       >
-        {loading ? (
-          <span
-            style={{
-              display: 'inline-block',
-              width: '16px',
-              height: '16px',
-              border: `2px solid currentColor`,
-              borderRightColor: 'transparent',
-              borderRadius: '50%',
-              animation: 'rd-spin 0.6s linear infinite',
-            }}
-          />
-        ) : (
-          <>
-            {leadingIcon && <span style={{ display: 'inline-flex', alignItems: 'center' }}>{leadingIcon}</span>}
-            <span>{children}</span>
-            {trailingIcon && <span style={{ display: 'inline-flex', alignItems: 'center' }}>{trailingIcon}</span>}
-          </>
-        )}
+        {innerContent}
       </button>
     );
   }

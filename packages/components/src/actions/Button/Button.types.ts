@@ -14,6 +14,12 @@ export interface ButtonProps
   leadingIcon?: React.ReactNode;
   /** Optional icon rendered after label */
   trailingIcon?: React.ReactNode;
+  /**
+   * Whether interactive spring motion (press / hover) is enabled.
+   * Enabled by default; can be disabled per component or globally via MotionProvider.
+   * @default true
+   */
+  motion?: boolean;
   /** Button content */
   children?: React.ReactNode;
 }

@@ -24,7 +24,7 @@ export const radii = {
 
 export type RadiiScale = keyof typeof radii;
 
-export const motion = {
+export const cssMotion = {
   fast: '150ms',
   normal: '250ms',
   slow: '400ms',
@@ -32,6 +32,8 @@ export const motion = {
   easeDecelerate: 'cubic-bezier(0, 0, 0.2, 1)',
   easeAccelerate: 'cubic-bezier(0.4, 0, 1, 1)',
 } as const;
+
+export * from './motion';
 
 export const typography = {
   displayHero: { size: '48px', lineHeight: '56px', weight: '700', letterSpacing: '-0.03em' },

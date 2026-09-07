@@ -77,3 +77,42 @@ export const GlassmorphicCard: Story = {
     </div>
   ),
 };
+
+export const InteractiveMotionCard: Story = {
+  render: () => (
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem', maxWidth: '720px' }}>
+      <Card interactive>
+        <CardHeader>
+          <Badge variant="primary" size="sm">HOVER ACTIVE</Badge>
+          <CardTitle>Interactive Spring Card</CardTitle>
+          <CardDescription>Hover over to observe subtle spring elevation (-4px)</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div style={{ fontSize: '13px', lineHeight: '20px', color: 'var(--rd-color-on-surface-variant)' }}>
+            Elevates effortlessly using snappy spring physics, enhancing tactile feedback for clickable tiles and media cards.
+          </div>
+        </CardContent>
+        <CardFooter>
+          <Button variant="primary" size="sm">Inspect Node</Button>
+        </CardFooter>
+      </Card>
+
+      <Card interactive motion={false}>
+        <CardHeader>
+          <Badge variant="neutral" size="sm">OPT-OUT</Badge>
+          <CardTitle>Static Interactive Card</CardTitle>
+          <CardDescription>motion={'{false}'} disables transform animation</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div style={{ fontSize: '13px', lineHeight: '20px', color: 'var(--rd-color-on-surface-variant)' }}>
+            Preserves pointer cursor and accessibility while skipping physical lift animations.
+          </div>
+        </CardContent>
+        <CardFooter>
+          <Button variant="secondary" size="sm" motion={false}>Static Button</Button>
+        </CardFooter>
+      </Card>
+    </div>
+  ),
+};
+

@@ -1,6 +1,6 @@
 {
   "name": "@ripperdoc-chrome77/components",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Accessible, generic UI components for Ripperdoc design system",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -25,10 +25,11 @@
     "react-dom": "^18.0.0 || ^19.0.0"
   },
   "dependencies": {
-    "@ripperdoc-chrome77/tokens": "workspace:*",
     "@ripperdoc-chrome77/themes": "workspace:*",
+    "@ripperdoc-chrome77/tokens": "workspace:*",
     "@ripperdoc-chrome77/utils": "workspace:*",
-    "class-variance-authority": "^0.7.1"
+    "class-variance-authority": "^0.7.1",
+    "motion": "^13.2.0"
   },
   "scripts": {
     "dev": "tsup --watch",

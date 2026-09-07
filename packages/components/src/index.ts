@@ -17,3 +17,6 @@ export * from './feedback/Badge';
 
 // Surfaces
 export * from './surfaces/Card';
+
+// Motion System & Primitives
+export * from './motion';

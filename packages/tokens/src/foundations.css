@@ -34,12 +34,41 @@
   --rd-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
   --rd-ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
   --rd-ease-accelerate: cubic-bezier(0.4, 0, 1, 1);
+  --rd-ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
 
   /* Layout Constraints */
   --rd-container-max-width: 1440px;
   --rd-container-margin-mobile: 16px;
   --rd-container-margin-desktop: 48px;
   --rd-gutter: 16px;
+}
+
+/* Global Motion Control Attributes */
+[data-motion-disabled='true'],
+[data-motion-disabled='true'] * {
+  --rd-duration-fast: 0ms !important;
+  --rd-duration-normal: 0ms !important;
+  --rd-duration-slow: 0ms !important;
+  transition-duration: 0ms !important;
+  animation-duration: 0ms !important;
+  animation-iteration-count: 1 !important;
+}
+
+[data-reduced-motion='true'],
+[data-reduced-motion='true'] * {
+  --rd-duration-fast: 0.01ms !important;
+  --rd-duration-normal: 0.01ms !important;
+  --rd-duration-slow: 0.01ms !important;
+  transition-duration: 0.01ms !important;
+  animation-duration: 0.01ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root:not([data-reduced-motion='never']) {
+    --rd-duration-fast: 0.01ms;
+    --rd-duration-normal: 0.01ms;
+    --rd-duration-slow: 0.01ms;
+  }
 }
 
 /* Tabular figures for runtimes, timers, episode numbers */
@@ -140,4 +169,14 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+/* Keyframes for CSS Spinner Animation */
+@keyframes rd-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

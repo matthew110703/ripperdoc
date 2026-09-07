@@ -66,3 +66,32 @@ export const PillBadges: Story = {
     </div>
   ),
 };
+
+export const PulsingStatusBadges: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', maxWidth: '600px' }}>
+      <div>
+        <h4 style={{ margin: '0 0 0.25rem 0', fontSize: '15px', fontWeight: 600 }}>Pulsing Attention Badges</h4>
+        <p style={{ margin: 0, fontSize: '13px', color: 'var(--rd-color-on-surface-variant)' }}>
+          Continuous subtle breathing scale loop for live streams, active recordings, and critical alerts.
+        </p>
+      </div>
+
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
+        <Badge variant="error" pill pulse>
+          ● LIVE ON AIR
+        </Badge>
+        <Badge variant="success" pill pulse>
+          ● RECORDING ACTIVE
+        </Badge>
+        <Badge variant="warning" pill pulse>
+          ● SYNCING TELEMETRY
+        </Badge>
+        <Badge variant="error" pill pulse motion={false}>
+          ● PULSE DISABLED (motion=false)
+        </Badge>
+      </div>
+    </div>
+  ),
+};
+

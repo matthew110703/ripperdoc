@@ -5,6 +5,13 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   elevation?: 0 | 1 | 2;
   /** Whether to apply glassmorphic frosted backdrop blur */
   glass?: boolean;
+  /** Whether the card provides interactive hover lift feedback */
+  interactive?: boolean;
+  /**
+   * Whether motion is enabled. Enabled by default; can be disabled per component or globally.
+   * @default true
+   */
+  motion?: boolean;
   /** Additional CSS class names */
   className?: string;
   /** Inner content */

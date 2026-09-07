@@ -131,3 +131,109 @@ export const FullWidth: Story = {
     </div>
   ),
 };
+
+export const MotionFeedback: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', maxWidth: '600px' }}>
+      <div>
+        <h4 style={{ margin: '0 0 0.25rem 0', fontSize: '15px', fontWeight: 600 }}>Spring Press & Hover Feedback</h4>
+        <p style={{ margin: 0, fontSize: '13px', color: 'var(--rd-color-on-surface-variant)' }}>
+          Motion is active by default. Tap/click any button below to see the snappy spring compression physics.
+        </p>
+      </div>
+
+      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+        <Button variant="primary">Spring Motion (Default)</Button>
+        <Button variant="secondary">Secondary Spring</Button>
+        <Button variant="danger">Danger Spring</Button>
+      </div>
+
+      <div>
+        <h4 style={{ margin: '0 0 0.25rem 0', fontSize: '14px', fontWeight: 600 }}>Component Opt-Out (motion={'{false}'})</h4>
+        <p style={{ margin: '0 0 0.75rem 0', fontSize: '12px', color: 'var(--rd-color-on-surface-variant)' }}>
+          Consumers can opt out per-component without affecting global configuration.
+        </p>
+        <Button variant="secondary" motion={false}>Static Button (No Motion)</Button>
+      </div>
+    </div>
+  ),
+};
+
+export const LoadingStates: Story = {
+  render: () => {
+    const [isLoading, setIsLoading] = React.useState(false);
+    const [isSuccess, setIsSuccess] = React.useState(false);
+
+    const handleTrigger = () => {
+      setIsLoading(true);
+      setIsSuccess(false);
+      setTimeout(() => {
+        setIsLoading(false);
+        setIsSuccess(true);
+        setTimeout(() => setIsSuccess(false), 2000);
+      }, 2000);
+    };
+
+    return (
+      <div style={{ maxWidth: '800px', display: 'flex', flexDirection: 'column', gap: '2rem', fontFamily: 'var(--rd-font-sans)' }}>
+        <div>
+          <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '18px', fontWeight: 600 }}>Interactive Loading & Async States</h3>
+          <p style={{ margin: 0, fontSize: '13px', color: 'var(--rd-color-on-surface-variant)' }}>
+            When <code>loading={'{true}'}</code>, the button displays a 60fps spinner, preserves the text label, disables clicks, and maintains layout stability.
+          </p>
+        </div>
+
+        {/* Live Interactive Trigger */}
+        <div style={{ padding: '1.5rem', backgroundColor: 'var(--rd-color-surface-container)', borderRadius: 'var(--rd-radius-lg)', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <span style={{ fontSize: '12px', fontFamily: 'var(--rd-font-mono)', color: 'var(--rd-color-primary)' }}>
+            ASYNC ACTION SIMULATOR (CLICK TO TEST)
+          </span>
+          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Button
+              variant="primary"
+              loading={isLoading}
+              onClick={handleTrigger}
+            >
+              {isLoading ? 'Processing Request...' : isSuccess ? '✓ Completed!' : 'Click to Submit'}
+            </Button>
+            <Button
+              variant="secondary"
+              loading={isLoading}
+              onClick={handleTrigger}
+            >
+              {isLoading ? 'Saving...' : 'Save Draft'}
+            </Button>
+          </div>
+        </div>
+
+        {/* Sizes Matrix in Loading State */}
+        <div>
+          <span style={{ fontSize: '12px', fontFamily: 'var(--rd-font-mono)', color: 'var(--rd-color-primary)', display: 'block', marginBottom: '0.75rem' }}>
+            LOADING ACROSS SIZES
+          </span>
+          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Button size="sm" variant="primary" loading>Small Loading</Button>
+            <Button size="md" variant="primary" loading>Medium Loading</Button>
+            <Button size="lg" variant="primary" loading>Large Loading</Button>
+          </div>
+        </div>
+
+        {/* Variants Matrix in Loading State */}
+        <div>
+          <span style={{ fontSize: '12px', fontFamily: 'var(--rd-font-mono)', color: 'var(--rd-color-primary)', display: 'block', marginBottom: '0.75rem' }}>
+            LOADING ACROSS VARIANTS
+          </span>
+          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Button variant="primary" loading>Primary</Button>
+            <Button variant="secondary" loading>Secondary</Button>
+            <Button variant="tertiary" loading>Tertiary</Button>
+            <Button variant="danger" loading>Danger</Button>
+            <Button variant="ghost" loading>Ghost</Button>
+          </div>
+        </div>
+      </div>
+    );
+  },
+};
+
+

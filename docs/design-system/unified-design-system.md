@@ -735,30 +735,95 @@ implementation changes.
 
 ---
 
-# 17. Motion
+# 17. Motion System Architecture
 
-Motion should become a global foundation.
+Motion is a global foundation shared across all themes (Obsidian & Luminous) and consumed by all micro-frontends.
 
-Initial contract:
+Ripperdoc adopts the **Tokens → Primitives → Components** model:
 
 ```text
-duration.fast
-duration.normal
-duration.slow
-
-easing.standard
-easing.emphasized
-easing.decelerate
-easing.accelerate
+Motion Tokens (@ripperdoc-chrome77/tokens)
+       ↓
+Motion Primitives & System (@ripperdoc-chrome77/components)
+       ↓
+UI Components (Button, Card, Badge, Dialog, Toast)
 ```
 
-Theme specifications may tune motion expression, but components should
-use semantic motion tokens rather than hard-coded durations.
+### 17.1 Token Contract
 
-The existing Luminous design already specifies a 200ms ease-out
-media-card interaction, so that value should become a motion token
-rather than remain embedded in a component specification.
-fileciteturn4file0L232-L235
+#### Durations
+- `fast`: `150ms` (0.15s) — popovers, badges, tooltips, color transitions (`--rd-duration-fast`)
+- `normal`: `250ms` (0.25s) — standard UI elements, dialog entries, layout movement (`--rd-duration-normal`)
+- `slow`: `400ms` (0.40s) — large panels, full-page transitions, drawers (`--rd-duration-slow`)
+
+#### Easing Curves
+- `standard`: `cubic-bezier(0.4, 0, 0.2, 1)` / `[0.4, 0, 0.2, 1]` (`--rd-ease-standard`)
+- `decelerate` (Ease Out): `cubic-bezier(0, 0, 0.2, 1)` / `[0, 0, 0.2, 1]` (`--rd-ease-decelerate`)
+- `accelerate` (Ease In): `cubic-bezier(0.4, 0, 1, 1)` / `[0.4, 0, 1, 1]` (`--rd-ease-accelerate`)
+- `emphasized`: `cubic-bezier(0.2, 0, 0, 1)` / `[0.2, 0, 0, 1]` (`--rd-ease-emphasized`)
+
+#### Spring Physics Presets
+- `snappy`: `{ stiffness: 400, damping: 30, mass: 0.8 }` — recommended default for interactive controls (buttons, chips, toggles)
+- `gentle`: `{ stiffness: 200, damping: 25, mass: 1 }` — smooth entries for dialogs, drawers, and cards
+- `bouncy`: `{ stiffness: 300, damping: 15, mass: 1 }` — playful feedback for badges, toasts, and notifications
+- `stiff`: `{ stiffness: 500, damping: 35, mass: 0.5 }` — immediate response with minimal travel
+
+---
+
+### 17.2 Motion Provider & Global Configuration
+
+Ripperdoc components have **motion enabled by default**. Consumers can configure or disable motion globally via `<MotionProvider>`:
+
+```tsx
+import { MotionProvider } from '@ripperdoc-chrome77/components';
+
+export function App() {
+  return (
+    <MotionProvider
+      disabled={false} // Set to true to disable all Motion animations and CSS transitions
+      reducedMotion="user" // 'user' (respects OS) | 'always' (forces reduced) | 'never'
+    >
+      <MicroFrontend />
+    </MotionProvider>
+  );
+}
+```
+
+When `disabled={true}`, the provider simultaneously:
+1. Configures `motion/react` with zero transition duration and instant state resolution.
+2. Injects `data-motion-disabled="true"` on the DOM root, which sets `--rd-duration-*` to `0ms !important` across all CSS transitions.
+
+Hooks available:
+- `useMotionConfig()`: Read/write motion enabled state and reduced-motion mode.
+- `useReducedMotion()`: Check if reduced-motion is active via OS or provider override.
+- `useIsMotionEnabled()`: True if motion is active and not reduced.
+
+---
+
+### 17.3 Core Semantic Motion Variants & Primitives
+
+Instead of writing bespoke animation logic, components compose from standard primitives:
+
+| Primitive | Presets / Props | Common Usage |
+| :--- | :--- | :--- |
+| `<Fade>` | `fade`, `fadeScale`, `fadeSlideUp`, `fadeSlideDown`, `blur` | Modals, tooltips, toasts |
+| `<Slide>` | `direction="up" \| "down" \| "left" \| "right"` | Drawers, notification trays |
+| `<Scale>` | `initialScale={0.9}` | Dropdown menus, popovers |
+| `<Collapse>` | `isOpen={boolean}`, `unmountOnExit` | Accordions, disclosure panels |
+| `<Stagger>` | `staggerDelay={0.05}`, `<StaggerItem>` | List feeds, search result grids |
+| `<Attention>` | `variant="shake" \| "bounce" \| "pulse" \| "wiggle"` | Validation errors, badges, alerts |
+| `<MotionBox>` | Polymorphic `motion.div` wrapper | Custom layout animations |
+
+---
+
+### 17.4 Component Motion Compliance Rule
+
+All future components added to Ripperdoc must adhere to:
+1. **Motion Enabled by Default**: Interactive actions (buttons, cards, badges) include spring feedback by default.
+2. **Component Opt-Out**: Expose `motion?: boolean` (default `true`) allowing per-component opt-out (`motion={false}`).
+3. **Respect Global Config**: Read `useMotionConfig()` to honor global disable and reduced-motion settings.
+4. **Never Hardcode Timing**: Always consume tokens from `@ripperdoc-chrome77/tokens`.
+
 
 ---
 
